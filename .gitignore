@@ -1,0 +1,21 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Encoding sources — only used by scripts/encode-hero.mjs to produce
+# hero-web.mp4/hero-idle.mp4. Too large for git (the elevator source is 79MB)
+# and for Cloudflare Pages' 25MiB limit.
+public/hero-video.mp4
+public/hero-elevator-source.mp4
