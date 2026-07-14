@@ -54,14 +54,7 @@ export default function About() {
             >
               fifthavefilm.com
             </a>
-            <a
-              href="https://www.linkedin.com/" /* TODO: cheaper model — real LinkedIn URL */
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-b border-white/20 pb-1 text-sm uppercase tracking-widest text-white/70 transition-colors hover:border-gold hover:text-gold"
-            >
-              LinkedIn
-            </a>
+{/* LinkedIn link removed — add back with real URL when available */}
           </div>
         </div>
       </div>

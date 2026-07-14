@@ -20,6 +20,10 @@ body {
   overflow-x: clip; /* no horizontal overflow, ever */
 }
 
+[id] {
+  scroll-margin-top: 5rem;
+}
+
 ::selection {
   background-color: var(--color-gold);
   color: var(--color-dark);
