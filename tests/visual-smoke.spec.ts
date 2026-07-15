@@ -201,7 +201,7 @@ test.describe('Services page rendering', () => {
     await page.goto('/services');
     const cards = page.locator('.glass-card');
     const count = await cards.count();
-    expect(count).toBeGreaterThanOrEqual(6);
+    expect(count).toBeGreaterThanOrEqual(3);
     await expect(cards.first()).toBeVisible();
   });
 

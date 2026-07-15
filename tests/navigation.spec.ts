@@ -3,8 +3,7 @@ import { test, expect, Page } from '@playwright/test';
 const TOP_NAV = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
-  { label: 'AI Tools', href: '/ai-tools' },
-  { label: 'Work', href: '/work' },
+  { label: 'AI Tools & Demos', href: '/ai-tools' },
   { label: 'AI Career Defense', href: '/ai-career-defense' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
@@ -12,8 +11,7 @@ const TOP_NAV = [
 
 const FLOOR_MENU_PAGES = [
   { label: 'Services', href: '/services' },
-  { label: 'AI Tools', href: '/ai-tools' },
-  { label: 'Work / Demos', href: '/work' },
+  { label: 'AI Tools & Demos', href: '/ai-tools' },
   { label: 'AI Career Defense', href: '/ai-career-defense' },
   { label: 'About Fifth Ave AI', href: '/about' },
   { label: 'Contact / Book a Consultation', href: '/contact' },
@@ -214,6 +212,16 @@ test.describe('Footer Links', () => {
   }
 });
 
+// ─── /work redirects to /ai-tools ───────────────────────────────
+
+test.describe('/work redirect', () => {
+  test('/work redirects to /ai-tools', async ({ page }) => {
+    await page.goto('/work');
+    await page.waitForURL('/ai-tools', { timeout: 5000 });
+    await expect(page).toHaveURL('/ai-tools');
+  });
+});
+
 // ─── All pages return 200 ────────────────────────────────────────
 
 test.describe('All pages return 200', () => {
@@ -243,5 +251,12 @@ test.describe('No obsolete menu labels', () => {
     for (const old of OBSOLETE) {
       expect(text).not.toContain(old);
     }
+  });
+
+  test('"Work" is not in navigation', async ({ page }) => {
+    await page.goto('/');
+    const nav = page.locator('nav');
+    const workLink = nav.getByRole('link', { name: 'Work', exact: true });
+    await expect(workLink).toHaveCount(0);
   });
 });

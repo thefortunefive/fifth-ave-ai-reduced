@@ -23,14 +23,6 @@ const icons: Record<string, JSX.Element> = {
       <circle cx="15" cy="15" r="1" fill="currentColor" />
     </svg>
   ),
-  '/work': (
-    <svg className={IC} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
-      <rect x="3" y="4" width="7" height="7" rx="1" />
-      <rect x="14" y="4" width="7" height="7" rx="1" />
-      <rect x="3" y="13" width="7" height="7" rx="1" />
-      <rect x="14" y="13" width="7" height="7" rx="1" />
-    </svg>
-  ),
   '/ai-career-defense': (
     <svg className={IC} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
       <path d="M12 3l7.5 4.3v5.4c0 4.7-3.2 9-7.5 10.3-4.3-1.3-7.5-5.6-7.5-10.3V7.3L12 3z" />

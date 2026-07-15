@@ -21,21 +21,12 @@ const SERVICES = [
     body: 'Professional website design with AI chatbot integration, mobile-responsive layouts, and built-in SEO.',
     tags: ['AI Chatbot', 'Mobile-First', 'SEO Optimized'],
   },
-  {
-    title: 'Social Media Management',
-    body: 'Consistent content across 7 platforms with zero manual effort. AI creates, schedules, and posts automatically.',
-    tags: ['7 Platforms', 'AI Content Creation', 'Performance Reports'],
-  },
-  {
-    title: 'Business Automation',
-    body: 'Custom AI workflows that eliminate repetitive tasks and free your team to focus on high-value work.',
-    tags: ['Workflow Design', 'Custom Integration', 'Ongoing Support'],
-  },
-  {
-    title: 'AI Consulting',
-    body: 'Strategic guidance on where and how AI can drive the most impact in your specific business.',
-    tags: ['Discovery Call', 'AI Audit', 'Roadmap'],
-  },
+];
+
+const MORE_CAPABILITIES = [
+  'Social Media Management',
+  'Business Automation',
+  'AI Consulting',
 ];
 
 /* Owner review: confirm all pricing is current */
@@ -199,6 +190,23 @@ export default function ServicesPage() {
                   </div>
                 </article>
               ))}
+            </div>
+
+            {/* More Capabilities */}
+            <div data-reveal className="mt-14">
+              <h3 className="font-display text-center text-lg text-white/40">
+                More Capabilities
+              </h3>
+              <div className="mt-4 flex flex-wrap justify-center gap-3">
+                {MORE_CAPABILITIES.map((name) => (
+                  <span
+                    key={name}
+                    className="rounded-full border border-white/10 px-4 py-1.5 text-[11px] uppercase tracking-widest text-white/30"
+                  >
+                    {name} — Coming Soon
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </section>

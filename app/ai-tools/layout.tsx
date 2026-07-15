@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'AI Tools',
+  title: 'AI Tools & Demos',
   description:
-    'Explore Fifth Ave AI tools: email automation, listing intelligence, AI avatar video, content engines, chatbot integration, and custom workflow automation.',
+    'AI tools and demonstrations built by Fifth Ave AI: email automation, listing intelligence, and AI avatar video production.',
 };
 
 export default function AIToolsLayout({ children }: { children: React.ReactNode }) {
