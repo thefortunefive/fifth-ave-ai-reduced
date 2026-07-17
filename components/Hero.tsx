@@ -150,6 +150,16 @@ export default function Hero() {
       }
     };
 
+    // Some WebKit builds fail to wrap <video loop> after a decoder hiccup and
+    // silently pause at the loop point. If the idle layer is supposed to be
+    // active and it stops for any reason other than setIdle(false), restart it.
+    // (Intentional pauses are safe: setIdle(false) flips idleActive first.)
+    const onIdleStall = () => {
+      if (idleActive) idleEl.play().catch(() => {});
+    };
+    idleEl.addEventListener('pause', onIdleStall);
+    idleEl.addEventListener('ended', onIdleStall);
+
     // ── Seekability guard ────────────────────────────────────────────────────
     const canSeekTo = (t: number): boolean => {
       const dur = scrubEl.duration;
@@ -321,6 +331,8 @@ export default function Hero() {
       clearTimeout(t1);
       clearTimeout(t2);
       if (rafId !== null) cancelAnimationFrame(rafId);
+      idleEl.removeEventListener('pause',            onIdleStall);
+      idleEl.removeEventListener('ended',            onIdleStall);
       scrubEl.removeEventListener('seeked',          onSeeked);
       scrubEl.removeEventListener('progress',        onVideoProgress);
       scrubEl.removeEventListener('error',           onScrubError);

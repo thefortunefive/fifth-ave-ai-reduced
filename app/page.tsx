@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero';
+import WebDesignMenu from '@/components/sections/WebDesignMenu';
 import Proof from '@/components/sections/Proof';
 import Process from '@/components/sections/Process';
 import About from '@/components/sections/About';
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <WebDesignMenu />
       <Proof />
       <Process />
       <About />
