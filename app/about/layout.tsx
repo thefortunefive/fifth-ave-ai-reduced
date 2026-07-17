@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Fifth Ave AI: AI consulting and custom software serving businesses in Seattle, Atlanta, New York, and Philadelphia. Our story, values, and team.',
+    'Fifth Ave AI creates custom websites and AI avatar video experiences for businesses that want to communicate clearly.',
 };
 
 export default function AboutLayout({ children }: { children: React.ReactNode }) {

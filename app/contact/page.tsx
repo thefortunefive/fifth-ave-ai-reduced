@@ -4,6 +4,13 @@ import { useRef, useState } from 'react';
 import { useFadeUp } from '@/lib/animations';
 import Footer from '@/components/Footer';
 
+const PROJECT_TYPES = [
+  'Custom Website',
+  'AI Avatar',
+  'Avatar Video Production',
+  'Other / Not Sure',
+];
+
 export default function ContactPage() {
   const heroRef = useRef<HTMLElement>(null);
   useFadeUp(heroRef);
@@ -16,10 +23,11 @@ export default function ContactPage() {
     const data = new FormData(form);
     const name = data.get('name');
     const email = data.get('email');
+    const projectType = data.get('projectType');
     const message = data.get('message');
-    const subject = encodeURIComponent(`New inquiry from ${name}`);
+    const subject = encodeURIComponent(`New project inquiry — ${projectType} — ${name}`);
     const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\n${message}`
+      `Name: ${name}\nEmail: ${email}\nProject type: ${projectType}\n\n${message}`
     );
     window.location.href = `mailto:hello@fifthaveai.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
@@ -31,14 +39,14 @@ export default function ContactPage() {
         <section ref={heroRef} className="bg-dark px-6 py-20 md:py-32">
           <div className="mx-auto max-w-6xl">
             <p data-reveal className="text-xs uppercase tracking-[0.35em] text-gold">
-              Get in Touch
+              Start a Project
             </p>
             <h1 data-reveal className="font-display mt-4 text-4xl text-white md:text-6xl">
               Let&apos;s talk.
             </h1>
             <p data-reveal className="mt-6 max-w-xl text-lg text-white/60">
-              Ready to transform your business? We&apos;d love to hear from you.
-              Reach out and let&apos;s start a conversation.
+              Tell us whether you need a custom website, an AI avatar, or
+              branded avatar videos.
             </p>
           </div>
         </section>
@@ -47,7 +55,7 @@ export default function ContactPage() {
           <div className="mx-auto grid max-w-6xl gap-14 md:grid-cols-[1fr_1fr]">
             {/* Form */}
             <div>
-              <h2 className="font-display text-2xl text-white">Send Us a Message</h2>
+              <h2 className="font-display text-2xl text-white">Project Details</h2>
               {submitted ? (
                 <div className="mt-8 glass-card rounded-xl p-8 text-center">
                   <p className="font-display text-2xl text-gold">Thank you!</p>
@@ -104,6 +112,27 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label
+                      htmlFor="projectType"
+                      className="block text-xs uppercase tracking-[0.2em] text-white/50"
+                    >
+                      Project Type
+                    </label>
+                    <select
+                      id="projectType"
+                      name="projectType"
+                      required
+                      defaultValue={PROJECT_TYPES[0]}
+                      className="mt-2 w-full appearance-none rounded-lg border border-white/10 bg-dark px-4 py-3 text-white focus:border-gold/50 focus:outline-none focus:ring-1 focus:ring-gold/30"
+                    >
+                      {PROJECT_TYPES.map((t) => (
+                        <option key={t} value={t} className="bg-dark text-white">
+                          {t}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label
                       htmlFor="message"
                       className="block text-xs uppercase tracking-[0.2em] text-white/50"
                     >
@@ -122,7 +151,7 @@ export default function ContactPage() {
                     type="submit"
                     className="w-full rounded-full bg-gold py-4 text-sm font-medium uppercase tracking-[0.2em] text-dark transition-all duration-300 hover:shadow-[0_0_40px_rgba(215,183,90,0.45)]"
                   >
-                    Send Message
+                    Send Project Details
                   </button>
                 </form>
               )}
@@ -152,28 +181,12 @@ export default function ContactPage() {
               </div>
 
               <div className="glass-card rounded-xl p-8">
-                <h3 className="font-display text-xl text-white">Headquarters</h3>
+                <h3 className="font-display text-xl text-white">Office</h3>
                 <p className="mt-3 leading-relaxed text-white/60">
                   11335 NE 122nd Way, Suite 105
                   <br />
                   Kirkland, Washington 98034
                 </p>
-              </div>
-
-              <div className="glass-card rounded-xl p-8">
-                <h3 className="font-display text-xl text-white">
-                  Free Consultation
-                </h3>
-                <p className="mt-3 text-sm text-white/60">
-                  Book a free 30-minute call to discuss how AI can transform
-                  your business operations.
-                </p>
-                <a
-                  href="mailto:hello@fifthaveai.com?subject=Consultation%20Request"
-                  className="mt-5 inline-block rounded-full border border-gold/40 px-6 py-2.5 text-[12px] uppercase tracking-[0.2em] text-gold transition-all duration-300 hover:bg-gold hover:text-dark"
-                >
-                  Book a Time Slot
-                </a>
               </div>
             </div>
           </div>

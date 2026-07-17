@@ -1,13 +1,6 @@
 'use client';
 
-// TODO: cheaper model — SECTION 3: PROCESS (scaffold)
-// Done: 4 steps, brand styling, animated gold connector line (draws on scroll),
-//       fade-up reveals, vertical stack on mobile.
-// Left to do:
-//   - Desktop horizontal-scroll treatment: pin this section with ScrollTrigger and
-//     translate the step row horizontally (containerAnimation pattern). Currently
-//     it's a static 4-column grid on desktop, which is acceptable but not final.
-//   - Step copy pass (1–2 sentences each).
+// Reduced-launch: three concise steps with the animated gold connector line.
 
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
@@ -17,10 +10,21 @@ import { useFadeUp } from '@/lib/animations';
 gsap.registerPlugin(ScrollTrigger);
 
 const STEPS = [
-  { n: '01', title: 'Discovery', body: 'We map where hours and revenue leak out of your business.' },
-  { n: '02', title: 'AI Audit', body: 'Every workflow scored for automation impact and effort.' },
-  { n: '03', title: 'Build', body: 'Custom systems, built and integrated — not off-the-shelf demos.' },
-  { n: '04', title: 'Scale', body: 'We tune, expand, and compound what works.' },
+  {
+    n: '01',
+    title: 'Discuss',
+    body: 'We define the audience, goal, required content, and the result the project needs to achieve.',
+  },
+  {
+    n: '02',
+    title: 'Build',
+    body: 'We design and create the website, avatar, or video experience around the approved direction.',
+  },
+  {
+    n: '03',
+    title: 'Launch',
+    body: 'We review, refine, and deliver the finished project for real-world use.',
+  },
 ];
 
 export default function Process() {
@@ -58,7 +62,7 @@ export default function Process() {
           How it works
         </p>
         <h2 data-reveal className="font-display mt-4 text-4xl text-white md:text-5xl">
-          Four steps. No fluff.
+          Three steps. No fluff.
         </h2>
 
         <div className="relative mt-16">
@@ -67,7 +71,7 @@ export default function Process() {
             ref={lineRef}
             className="absolute left-0 top-6 hidden h-px w-full origin-left bg-gradient-to-r from-gold via-gold/70 to-gold/20 md:block"
           />
-          <div className="grid gap-10 md:grid-cols-4 md:gap-6">
+          <div className="grid gap-10 md:grid-cols-3 md:gap-8">
             {STEPS.map((step) => (
               <div key={step.n} data-reveal data-reveal-group="process-steps" className="relative">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 bg-dark text-sm text-gold">

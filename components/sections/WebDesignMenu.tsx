@@ -28,17 +28,6 @@ const icons: Record<string, JSX.Element> = {
       <path d="M12 3l7.5 4.3v5.4c0 4.7-3.2 9-7.5 10.3-4.3-1.3-7.5-5.6-7.5-10.3V7.3L12 3z" />
     </svg>
   ),
-  '/#process': (
-    <svg className={IC} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
-      <circle cx="12" cy="12" r="3" />
-      <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
-    </svg>
-  ),
-  '/#consulting': (
-    <svg className={IC} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
-      <path d="M12 2l2.4 7.2H22l-6.2 4.6 2.4 7.2L12 16.4 5.8 21l2.4-7.2L2 9.2h7.6L12 2z" />
-    </svg>
-  ),
   '/about': (
     <svg className={IC} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
       <rect x="4" y="3" width="16" height="18" rx="2" />
@@ -63,7 +52,7 @@ export default function WebDesignMenu() {
   };
 
   const rowClasses =
-    'group flex min-h-[46px] items-center gap-3.5 rounded-[6px] px-3.5 py-2.5 transition-all duration-300 hover:-translate-y-[1px] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a46a]';
+    'group flex min-h-[50px] items-center gap-3.5 rounded-[6px] px-3.5 py-2.5 transition-all duration-300 hover:-translate-y-[1px] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#c9a46a]';
   const rowStyle = {
     border: '1px solid rgba(201,164,106,0.38)',
     background: 'linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.25))',
@@ -141,7 +130,9 @@ export default function WebDesignMenu() {
             </div>
 
             {/* ===== Directory rows ===== */}
-            <ul className="mt-6 space-y-[7px]">
+            {/* Five rows (was seven) — slightly larger row height + gap keeps
+                the card's vertical presence balanced under the crest. */}
+            <ul className="mt-7 space-y-[9px]">
               {DIRECTORY_MENU.map((item) => {
                 const isAnchor = item.href.startsWith('/#');
                 const icon = icons[item.href] ?? icons['/services'];

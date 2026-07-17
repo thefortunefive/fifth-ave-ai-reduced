@@ -7,146 +7,45 @@ import Footer from '@/components/Footer';
 
 const SERVICES = [
   {
-    title: 'AI Email Assistant',
-    body: '24/7 automated email responses that sound completely human. Never miss another inquiry.',
-    tags: ['24/7 Automated', 'Human-like Tone', '2-5 Min Response'],
-  },
-  {
-    title: 'AI Avatar Video Ads',
-    body: 'Scroll-stopping video ads with hyper-realistic AI avatars. Perfect for social media, landing pages, and campaigns.',
-    tags: ['Hyper-realistic Avatars', 'Social Optimized', '24-48hr Turnaround'],
-  },
-  {
-    title: 'AI-Powered Websites',
-    body: 'Professional website design with AI chatbot integration, mobile-responsive layouts, and built-in SEO.',
-    tags: ['AI Chatbot', 'Mobile-First', 'SEO Optimized'],
-  },
-];
-
-const MORE_CAPABILITIES = [
-  'Social Media Management',
-  'Business Automation',
-  'AI Consulting',
-];
-
-/* Owner review: confirm all pricing is current */
-const PLANS = [
-  {
-    name: 'Starter',
-    price: '$497',
-    setup: '$3,000',
-    features: [
-      '2 AI Avatar Videos/month',
-      '200 Emails automated/month',
-      '2 Social Platforms',
-      '10 Posts/week',
-      'Email support',
-      'Monthly reports',
+    id: 'custom-ai-websites',
+    kicker: 'Service 01',
+    title: 'Custom AI Websites',
+    what: 'Custom websites designed around your business, your offer, and the action you want visitors to take — built with modern web technology and current AI tooling.',
+    who: 'Businesses, professionals, and product owners who want a site that presents them clearly and moves visitors toward one specific action.',
+    deliverables: [
+      'Business and brand websites',
+      'Landing pages',
+      'Product and service presentations',
+      'Interactive web experiences',
+      'Responsive desktop and mobile builds',
+      'Deployment-ready websites',
     ],
-    popular: false,
+    cta: 'Discuss Your Website',
   },
   {
-    name: 'Professional',
-    price: '$997',
-    setup: '$5,000',
-    features: [
-      '5 AI Avatar Videos/month',
-      '500 Emails automated/month',
-      '4 Social Platforms',
-      '20 Posts/week',
-      '24/7 Priority Support',
-      'Advanced Analytics',
+    id: 'ai-avatars-and-video',
+    kicker: 'Service 02',
+    title: 'AI Avatars and Video',
+    what: 'Custom AI presenters and branded video content for marketing, education, sales, and customer communication — scripted, produced, and delivered ready to publish.',
+    who: 'Businesses that want a consistent on-camera presence for their brand without scheduling shoots for every new message.',
+    deliverables: [
+      'Custom AI avatars',
+      'Branded avatar presenters',
+      'Website welcome videos',
+      'Product and service explainers',
+      'Educational videos',
+      'Social media video content',
+      'Scripted avatar video production',
     ],
-    popular: true,
-  },
-  {
-    name: 'Enterprise',
-    price: '$1,997',
-    setup: '$10,000',
-    features: [
-      '10 AI Avatar Videos/month',
-      '1,500 Emails automated/month',
-      'All 7 Platforms',
-      '35 Posts/week',
-      'Dedicated Manager',
-      'Custom Integrations',
-    ],
-    popular: false,
+    cta: 'Discuss Your Avatar Project',
   },
 ];
-
-const WEB_TIERS = [
-  {
-    name: 'Gold',
-    price: '$2,500',
-    features: ['5-7 pages', 'Mobile-responsive', 'AI chatbot', 'Contact forms', 'SEO optimization', '1 year hosting'],
-  },
-  {
-    name: 'Platinum',
-    price: '$5,000',
-    features: ['8-12 pages', 'Custom design', 'AI chatbot', 'Blog integration', 'Advanced features', '1 year hosting'],
-  },
-  {
-    name: 'Diamond',
-    price: '$10,000',
-    features: ['Up to 50 products', 'Shopping cart', 'Payment processing', 'AI chatbot', 'Order tracking', '1 year hosting'],
-  },
-];
-
-const FAQ = [
-  {
-    q: 'How quickly can I expect results from AI marketing?',
-    a: 'Most clients see measurable improvements within the first 30 days. Email automation and social media management show immediate efficiency gains, while broader marketing results typically compound over 60-90 days.',
-  },
-  {
-    q: 'What makes your AI Avatar Videos different?',
-    a: 'Our avatars are hyper-realistic and customized to your brand voice and style. Unlike generic stock video, each avatar ad is tailored to your audience and optimized for the platform it will run on.',
-  },
-  {
-    q: 'Do I need technical knowledge to use your services?',
-    a: 'Not at all. We handle all the technical setup, configuration, and maintenance. You get the results without needing to understand the technology behind them.',
-  },
-  {
-    q: 'Can I upgrade or downgrade my package later?',
-    a: 'Absolutely. We design our packages to grow with you. You can adjust your plan at any time based on your evolving needs.',
-  },
-  {
-    q: "What's included in the setup fee?",
-    a: 'The setup fee covers initial configuration of all AI tools, integration with your existing systems, custom avatar creation, brand voice calibration, team training, and your first month of content creation.',
-  },
-  {
-    q: 'What kind of support do you provide?',
-    a: 'Every plan includes support. Starter plans get email support, Professional plans get 24/7 priority support, and Enterprise clients get a dedicated account manager plus weekly strategy reviews.',
-  },
-];
-
-function FaqItem({ q, a }: { q: string; a: string }) {
-  const ref = useRef<HTMLDetailsElement>(null);
-  return (
-    <details
-      ref={ref}
-      className="group border-b border-white/10 py-5"
-    >
-      <summary className="flex cursor-pointer list-none items-center justify-between text-white transition-colors hover:text-gold [&::-webkit-details-marker]:hidden">
-        <span className="pr-4 text-sm md:text-base">{q}</span>
-        <span className="shrink-0 text-gold transition-transform duration-300 group-open:rotate-45">
-          +
-        </span>
-      </summary>
-      <p className="mt-3 text-sm leading-relaxed text-white/60">{a}</p>
-    </details>
-  );
-}
 
 export default function ServicesPage() {
   const heroRef = useRef<HTMLElement>(null);
-  const pricingRef = useRef<HTMLElement>(null);
-  const webRef = useRef<HTMLElement>(null);
-  const faqRef = useRef<HTMLElement>(null);
+  const listRef = useRef<HTMLElement>(null);
   useFadeUp(heroRef);
-  useFadeUp(pricingRef);
-  useFadeUp(webRef);
-  useFadeUp(faqRef);
+  useFadeUp(listRef);
 
   return (
     <>
@@ -158,179 +57,90 @@ export default function ServicesPage() {
               What We Offer
             </p>
             <h1 data-reveal className="font-display mt-4 text-4xl text-white md:text-6xl">
-              AI-Powered Solutions
+              Two services. Built properly.
             </h1>
             <p data-reveal className="mt-6 max-w-2xl text-lg text-white/60">
-              Comprehensive AI-driven services designed to transform your
-              business and accelerate growth.
+              Fifth Ave AI creates custom websites and AI avatar video
+              experiences. Every project is scoped, designed, and delivered
+              around a specific business goal.
             </p>
             <div className="gold-rule mt-10" data-reveal />
+          </div>
+        </section>
 
-            <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {SERVICES.map((s) => (
-                <article
-                  key={s.title}
-                  data-reveal
-                  data-reveal-group="service-cards"
-                  className="glass-card group rounded-xl p-8"
-                >
-                  <h2 className="font-display text-xl text-white transition-colors group-hover:text-gold">
-                    {s.title}
-                  </h2>
-                  <p className="mt-3 text-sm leading-relaxed text-white/60">{s.body}</p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {s.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-gold/20 px-3 py-1 text-[11px] uppercase tracking-widest text-gold/70"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+        {/* Services */}
+        <section ref={listRef} className="bg-dark-2 px-6 py-20 md:py-32">
+          <div className="mx-auto max-w-6xl space-y-10">
+            {SERVICES.map((s) => (
+              <article
+                key={s.id}
+                id={s.id}
+                data-reveal
+                className="glass-card rounded-xl p-10 md:p-14"
+              >
+                <p className="text-[11px] uppercase tracking-[0.35em] text-gold/60">
+                  {s.kicker}
+                </p>
+                <h2 className="font-display mt-4 text-3xl text-white md:text-4xl">
+                  {s.title}
+                </h2>
+
+                <div className="mt-8 grid gap-10 md:grid-cols-2">
+                  <div>
+                    <h3 className="text-xs uppercase tracking-[0.25em] text-gold">
+                      What it is
+                    </h3>
+                    <p className="mt-3 leading-relaxed text-white/65">{s.what}</p>
+
+                    <h3 className="mt-8 text-xs uppercase tracking-[0.25em] text-gold">
+                      Who it&apos;s for
+                    </h3>
+                    <p className="mt-3 leading-relaxed text-white/65">{s.who}</p>
+
+                    <h3 className="mt-8 text-xs uppercase tracking-[0.25em] text-gold">
+                      Pricing
+                    </h3>
+                    <p className="mt-3 text-white/65">
+                      Custom quote based on project scope.
+                    </p>
                   </div>
-                </article>
-              ))}
-            </div>
 
-            {/* More Capabilities */}
-            <div data-reveal className="mt-14">
-              <h3 className="font-display text-center text-lg text-white/40">
-                More Capabilities
-              </h3>
-              <div className="mt-4 flex flex-wrap justify-center gap-3">
-                {MORE_CAPABILITIES.map((name) => (
-                  <span
-                    key={name}
-                    className="rounded-full border border-white/10 px-4 py-1.5 text-[11px] uppercase tracking-widest text-white/30"
-                  >
-                    {name} — Coming Soon
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+                  <div>
+                    <h3 className="text-xs uppercase tracking-[0.25em] text-gold">
+                      What we can deliver
+                    </h3>
+                    <ul className="mt-4 space-y-3">
+                      {s.deliverables.map((d) => (
+                        <li key={d} className="flex items-start gap-2.5 text-sm text-white/60">
+                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold/70" />
+                          {d}
+                        </li>
+                      ))}
+                    </ul>
+                    {/* Space reserved for real project examples as they become available */}
+                  </div>
+                </div>
 
-        {/* Pricing */}
-        <section ref={pricingRef} className="bg-dark-2 px-6 py-28 md:py-40">
-          <div className="mx-auto max-w-6xl">
-            <p data-reveal className="text-center text-xs uppercase tracking-[0.35em] text-gold">
-              Investment
-            </p>
-            <h2 data-reveal className="font-display mt-4 text-center text-4xl text-white md:text-5xl">
-              Pricing Plans
-            </h2>
-            <p data-reveal className="mx-auto mt-4 max-w-xl text-center text-white/50">
-              All plans include setup and ongoing AI automation. Choose the
-              package that fits your business needs.
-            </p>
-
-            <div className="mt-16 grid gap-6 md:grid-cols-3">
-              {PLANS.map((plan) => (
-                <div
-                  key={plan.name}
-                  data-reveal
-                  data-reveal-group="pricing-cards"
-                  className={`glass-card relative rounded-xl p-8 ${
-                    plan.popular ? 'ring-1 ring-gold/60' : ''
-                  }`}
-                >
-                  {plan.popular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gold px-4 py-1 text-[10px] font-bold uppercase tracking-widest text-dark">
-                      Most Popular
-                    </span>
-                  )}
-                  <h3 className="font-display text-2xl text-white">{plan.name}</h3>
-                  <p className="mt-4">
-                    <span className="font-display text-4xl text-gold">{plan.price}</span>
-                    <span className="text-sm text-white/40">/month</span>
-                  </p>
-                  <p className="mt-1 text-xs text-white/40">Setup: {plan.setup}</p>
-                  <ul className="mt-6 space-y-3">
-                    {plan.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm text-white/60">
-                        <span className="mt-0.5 text-gold">&#10003;</span>
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
+                <div className="mt-10">
                   <Link
                     href="/contact"
-                    className={`mt-8 block rounded-full py-3 text-center text-sm font-medium uppercase tracking-[0.15em] transition-all duration-300 ${
-                      plan.popular
-                        ? 'bg-gold text-dark hover:shadow-[0_0_40px_rgba(215,183,90,0.45)]'
-                        : 'border border-gold/40 text-gold hover:bg-gold hover:text-dark'
-                    }`}
+                    className="inline-block rounded-full bg-gold px-8 py-3 text-sm font-medium uppercase tracking-[0.2em] text-dark transition-all duration-300 hover:shadow-[0_0_40px_rgba(215,183,90,0.45)]"
                   >
-                    Get Started
+                    {s.cta}
                   </Link>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
+              </article>
+            ))}
 
-        {/* Website Packages */}
-        <section ref={webRef} className="bg-dark px-6 py-28 md:py-40">
-          <div className="mx-auto max-w-6xl">
-            <p data-reveal className="text-center text-xs uppercase tracking-[0.35em] text-gold">
-              Website Solutions
-            </p>
-            <h2 data-reveal className="font-display mt-4 text-center text-4xl text-white md:text-5xl">
-              AI-Powered Websites
-            </h2>
-
-            <div className="mt-16 grid gap-6 md:grid-cols-3">
-              {WEB_TIERS.map((tier) => (
-                <div
-                  key={tier.name}
-                  data-reveal
-                  data-reveal-group="web-tiers"
-                  className="glass-card rounded-xl p-8"
-                >
-                  <h3 className="font-display text-2xl text-white">{tier.name}</h3>
-                  <p className="font-display mt-3 text-4xl text-gold">{tier.price}</p>
-                  <ul className="mt-6 space-y-3">
-                    {tier.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm text-white/60">
-                        <span className="mt-0.5 text-gold">&#10003;</span>
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/contact"
-                    className="mt-8 block rounded-full border border-gold/40 py-3 text-center text-sm font-medium uppercase tracking-[0.15em] text-gold transition-all duration-300 hover:bg-gold hover:text-dark"
-                  >
-                    Get Quote
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section ref={faqRef} className="bg-dark-2 px-6 py-28 md:py-40">
-          <div className="mx-auto max-w-3xl">
-            <p data-reveal className="text-center text-xs uppercase tracking-[0.35em] text-gold">
-              Common Questions
-            </p>
-            <h2 data-reveal className="font-display mt-4 text-center text-4xl text-white md:text-5xl">
-              FAQ
-            </h2>
-            <div data-reveal className="mt-12">
-              {FAQ.map((item) => (
-                <FaqItem key={item.q} q={item.q} a={item.a} />
-              ))}
-            </div>
-            <div data-reveal className="mt-14 text-center">
-              <p className="text-white/50">Still have questions?</p>
+            <div data-reveal className="pt-6 text-center">
+              <p className="text-white/50">
+                Not sure which one fits? Tell us what you&apos;re trying to do.
+              </p>
               <Link
                 href="/contact"
-                className="mt-4 inline-block rounded-full bg-gold px-8 py-3 text-sm font-medium uppercase tracking-[0.2em] text-dark transition-all hover:shadow-[0_0_40px_rgba(215,183,90,0.45)]"
+                className="mt-5 inline-block rounded-full border border-gold/40 px-8 py-3 text-sm font-medium uppercase tracking-[0.2em] text-gold transition-all duration-300 hover:bg-gold hover:text-dark"
               >
-                Contact Us
+                Start a Conversation
               </Link>
             </div>
           </div>

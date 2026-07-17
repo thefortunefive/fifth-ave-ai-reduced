@@ -1,17 +1,10 @@
 import Link from 'next/link';
 import { TOP_NAV } from '@/lib/nav';
 
-const LOCATIONS = [
-  'Seattle, WA',
-  'Atlanta, GA',
-  'New York, NY',
-  'Philadelphia, PA',
-];
-
 export default function Footer() {
   return (
     <footer className="border-t border-white/5 bg-dark px-6 py-16 md:py-20">
-      <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
         {/* Brand */}
         <div>
           <div className="flex items-center gap-2.5">
@@ -36,8 +29,7 @@ export default function Footer() {
             </span>
           </div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/40">
-            AI consulting, automation, and custom software for businesses ready
-            to move faster. We build it. It works while you sleep.
+            Custom websites and AI avatar video experiences for businesses.
           </p>
         </div>
 
@@ -60,20 +52,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Locations */}
-        <div>
-          <h3 className="text-xs font-medium uppercase tracking-[0.25em] text-gold">
-            Locations
-          </h3>
-          <ul className="mt-4 space-y-3">
-            {LOCATIONS.map((loc) => (
-              <li key={loc} className="text-sm text-white/50">
-                {loc}
-              </li>
-            ))}
-          </ul>
-        </div>
-
         {/* Contact */}
         <div>
           <h3 className="text-xs font-medium uppercase tracking-[0.25em] text-gold">
@@ -89,11 +67,6 @@ export default function Footer() {
               <a href="mailto:hello@fifthaveai.com" className="transition-colors hover:text-gold">
                 hello@fifthaveai.com
               </a>
-            </li>
-            <li className="leading-relaxed">
-              11335 NE 122nd Way, Suite 105
-              <br />
-              Kirkland, WA 98034
             </li>
           </ul>
         </div>

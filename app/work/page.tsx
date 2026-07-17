@@ -11,7 +11,7 @@ export default function WorkRedirect() {
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-dark">
-      <p className="text-sm text-white/40">Redirecting to AI Tools &amp; Demos…</p>
+      <p className="text-sm text-white/40">Redirecting to Portfolio &amp; Demos…</p>
     </main>
   );
 }

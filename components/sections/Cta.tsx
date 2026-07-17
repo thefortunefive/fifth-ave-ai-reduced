@@ -1,18 +1,10 @@
 'use client';
 
-// TODO: cheaper model — SECTION 6: CTA (scaffold)
-// Done: layout, copy, city list, button to /contact, fade-up reveals, and a
-//       working lightweight gold particle canvas (drifting motes).
-// Left to do:
-//   - Art-direct the particles (density, glow, mouse-reactivity) or replace
-//     with a richer effect.
-//   - Build the /contact page (currently a styled stub).
+// Reduced-launch: one simple project CTA over the gold particle field.
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useFadeUp } from '@/lib/animations';
-
-const CITIES = ['Seattle', 'Atlanta', 'New York', 'Philadelphia'];
 
 /** Minimal drifting gold-particle field. */
 function useParticles(canvasRef: React.RefObject<HTMLCanvasElement>) {
@@ -93,22 +85,21 @@ export default function Cta() {
       />
       <div className="relative mx-auto max-w-3xl text-center">
         <h2 data-reveal className="font-display text-4xl leading-tight text-white md:text-6xl">
-          Ready to Put AI <span className="text-gold-gradient">to Work?</span>
+          Need Something <span className="text-gold-gradient">Built?</span>
         </h2>
-        <p data-reveal className="mt-6 text-lg text-white/60">
-          We take 3 clients per quarter.
+        <p data-reveal className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/60">
+          Tell us whether you need a custom website, an AI avatar, or branded
+          avatar videos. We&apos;ll review the project and determine the best way
+          to move forward.
         </p>
         <div data-reveal className="mt-10">
           <Link
             href="/contact"
             className="inline-block rounded-full bg-gold px-10 py-4 text-sm font-medium uppercase tracking-[0.2em] text-dark transition-all duration-300 hover:shadow-[0_0_40px_rgba(215,183,90,0.45)]"
           >
-            Start the Conversation
+            Start a Conversation
           </Link>
         </div>
-        <p data-reveal className="mt-14 text-xs uppercase tracking-[0.3em] text-white/40">
-          {CITIES.join('  ·  ')}
-        </p>
       </div>
     </section>
   );

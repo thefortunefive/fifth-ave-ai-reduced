@@ -24,12 +24,12 @@ export const metadata: Metadata = {
     template: '%s | Fifth Ave AI',
   } as Metadata['title'],
   description:
-    'AI consulting, automation, and custom software for businesses ready to move faster. We build it into your business and it works while you sleep.',
+    'Custom websites and AI avatar video experiences for businesses that want to communicate clearly and present themselves professionally.',
   metadataBase: new URL('https://fifthaveai.com'),
   openGraph: {
     title: 'Fifth Ave AI — Where Business Meets Intelligence',
     description:
-      'AI consulting, automation, and custom software for businesses in Seattle, Atlanta, New York, and Philadelphia.',
+      'Custom websites and AI avatar video experiences for businesses.',
     url: 'https://fifthaveai.com',
     siteName: 'Fifth Ave AI',
     type: 'website',

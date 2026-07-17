@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Get in touch with Fifth Ave AI. Call (425) 316-7268, email hello@fifthaveai.com, or book a free consultation.',
+    'Start a project with Fifth Ave AI. Tell us whether you need a custom website, an AI avatar, or branded avatar videos.',
 };
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {
