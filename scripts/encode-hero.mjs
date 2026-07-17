@@ -11,12 +11,14 @@
  *                            frame-accurate scroll scrubbing, +faststart
  *   public/hero-mobile.mp4 — 854px, CRF 26, GOP=4 (0.133s keyframes),
  *                            phone-class devices load this instead
- *   public/hero-idle.mp4   — from media/hero-clouds-v3.mp4
- *                            (WebsiteVideoIntroFinal_3_with_pan.mp4): the
- *                            static-camera cloud shot before the pan begins
- *                            (pan starts between 6–7s, measured), crossfade-
- *                            spliced so <video loop> is seamless with clouds
- *                            always moving forward
+ *   public/hero-idle.mp4   — from media/hero-clouds-nopan.mp4
+ *                            (WebsiteVideoIntroFinal_1_NoPan.mp4, 15s
+ *                            static-camera clouds): crossfade-spliced so
+ *                            <video loop> is seamless with clouds always
+ *                            moving forward. The cloud field drifts slowly
+ *                            and never re-matches t=0 (diff plateaus ≈4.1
+ *                            luma), so the seam uses a 1.0s crossfade to
+ *                            blend it invisibly → 13.5s loop
  *   public/hero-poster.jpg — exact first frame for stable first paint
  *
  * Usage:   npm run encode-hero
@@ -30,13 +32,13 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const MASTER = join(ROOT, 'media', 'hero-master-v2.mp4');
-const CLOUDS = join(ROOT, 'media', 'hero-clouds-v3.mp4');
+const CLOUDS = join(ROOT, 'media', 'hero-clouds-nopan.mp4');
 const WEB_VIDEO = join(ROOT, 'public', 'hero-web.mp4');
 const MOBILE_VIDEO = join(ROOT, 'public', 'hero-mobile.mp4');
 const IDLE_CLIP = join(ROOT, 'public', 'hero-idle.mp4');
 const POSTER = join(ROOT, 'public', 'hero-poster.jpg');
-const IDLE_CUT = 6.0; // s — pan starts between 6–7s in the clouds source (measured)
-const XFADE = 0.5;    // s — crossfade at the loop seam
+const IDLE_CUT = 14.5; // s — longest cut with margin from the clip end
+const XFADE = 1.0;     // s — long crossfade; cloud field never re-matches t=0
 
 function run(cmd, args) {
   return execFileSync(cmd, args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
