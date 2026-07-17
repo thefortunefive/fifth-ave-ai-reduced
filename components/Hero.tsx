@@ -30,11 +30,22 @@ gsap.registerPlugin(ScrollTrigger);
 
 const IDLE_THRESHOLD = 0.005;
 
+/**
+ * BEATS — mapped to the v2 master (42.2s, single continuous shot):
+ *   0–10s   (0–24%)   penthouse office, sunrise skyline, slow push
+ *   12–16s  (28–38%)  elevator lobby, gold doors, Fifth Ave plaque
+ *   16–18s  (38–43%)  doors open
+ *   18–28s  (43–66%)  inside the cab, doors close, ride
+ *   28–30s  (66–71%)  doors reopen
+ *   30–34s  (71–81%)  walk-out reveal of the Fifth Ave AI office
+ *   34–42s  (81–100%) settle on the office — kept text-free so the floor
+ *                     logo and screens read clean before content release
+ */
 const BEATS: { start: number; end: number; lines: string[] }[] = [
-  { start: 0.0, end: 0.15, lines: ['Fifth Ave AI', 'Where Business Meets Intelligence'] },
-  { start: 0.2, end: 0.4,  lines: ["We don't just talk about AI"] },
-  { start: 0.45, end: 0.65, lines: ['We build it into your business'] },
-  { start: 0.7, end: 0.9,  lines: ['And it works while you sleep'] },
+  { start: 0.0,  end: 0.20, lines: ['Fifth Ave AI', 'Where Business Meets Intelligence'] },
+  { start: 0.26, end: 0.42, lines: ["We don't just talk about AI"] },
+  { start: 0.50, end: 0.66, lines: ['We build it into your business'] },
+  { start: 0.70, end: 0.84, lines: ['And it works while you sleep'] },
 ];
 
 function beatOpacity(p: number, start: number, end: number, fade = 0.04): number {
@@ -75,7 +86,7 @@ export default function Hero() {
     ScrollTrigger.config({ ignoreMobileResize: true });
 
     // ── Select scrub video asset ────────────────────────────────────────────
-    // hero-mobile.mp4: 854×482, CRF 20, GOP=4 — lower bitrate for faster seek
+    // hero-mobile.mp4: 854×482, CRF 26, GOP=4 — lower bitrate for faster seek
     // on mobile networks; falls back to hero-web.mp4 if missing.
     const scrubSrc = mobile ? '/hero-mobile.mp4' : '/hero-web.mp4';
     if (!scrubEl.src || !scrubEl.src.endsWith(scrubSrc.replace('/', ''))) {
@@ -324,7 +335,8 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative h-[400vh] bg-dark" aria-label="Intro">
+    // 460vh runway ≈ same scrub speed as the previous 400vh/36s hero, scaled to 42.2s
+    <section ref={sectionRef} className="relative h-[460vh] bg-dark" aria-label="Intro">
       {/*
         Inner sticky container uses 100svh where supported (stable viewport —
         immune to URL-bar height changes) and falls back to 100vh via the
