@@ -12,13 +12,15 @@
  *   public/hero-mobile.mp4 — 854px, CRF 26, GOP=4 (0.133s keyframes),
  *                            phone-class devices load this instead
  *   public/hero-idle.mp4   — from media/hero-clouds-nopan.mp4
- *                            (WebsiteVideoIntroFinal_1_NoPan.mp4, 15s
+ *                            (WebsiteVideoIntroFinal_2_NoPan.mp4, 15s
  *                            static-camera clouds): crossfade-spliced so
  *                            <video loop> is seamless with clouds always
- *                            moving forward. The cloud field drifts slowly
- *                            and never re-matches t=0 (diff plateaus ≈4.1
- *                            luma), so the seam uses a 1.0s crossfade to
- *                            blend it invisibly → 13.5s loop
+ *                            moving forward. Scene brightness rises
+ *                            monotonically (sun brightens; diff vs t=0
+ *                            reaches ≈18 luma by the end), so the seam
+ *                            uses a long 2.5s crossfade to dissolve the
+ *                            lighting shift as gradually as the sun
+ *                            itself moves → 12.25s loop
  *   public/hero-poster.jpg — exact first frame for stable first paint
  *
  * Usage:   npm run encode-hero
@@ -37,8 +39,8 @@ const WEB_VIDEO = join(ROOT, 'public', 'hero-web.mp4');
 const MOBILE_VIDEO = join(ROOT, 'public', 'hero-mobile.mp4');
 const IDLE_CLIP = join(ROOT, 'public', 'hero-idle.mp4');
 const POSTER = join(ROOT, 'public', 'hero-poster.jpg');
-const IDLE_CUT = 14.5; // s — longest cut with margin from the clip end
-const XFADE = 1.0;     // s — long crossfade; cloud field never re-matches t=0
+const IDLE_CUT = 14.75; // s — longest cut with margin from the clip end
+const XFADE = 2.5;      // s — long crossfade; brightness never re-matches t=0
 
 function run(cmd, args) {
   return execFileSync(cmd, args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
