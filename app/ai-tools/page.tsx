@@ -11,13 +11,15 @@ import Footer from '@/components/Footer';
 
 const AVATAR_VIDEOS = [
   {
-    id: 'fy9i82qJ27s',
-    title: 'Portfolio Overview',
-    iframeTitle: 'Portfolio Overview video',
+    id: '50MgpHl38n8',
+    title: 'Custom Content Creation Demo',
+    iframeTitle: 'Custom Content Creation Demo video',
     description:
-      'An overview of the creative and technical work behind Fifth Ave AI, including custom websites, AI avatars, branded video, generative AI, and digital experience development.',
+      'A real estate example showing how custom AI-assisted content can be created for a specific company, offer, or industry.',
+    supporting:
+      'Real estate is the first industry example, but the same content-production approach can be adapted for professional services, healthcare, legal services, hospitality, retail, education, e-commerce, and other industries.',
     demonstrates:
-      'Creative direction, web design and development, AI production, visual storytelling, prompt engineering, editing, deployment, and complete project execution.',
+      'Content strategy, AI avatar production, scripting, branded visuals, editing, promotional storytelling, and industry-specific content creation.',
   },
   {
     id: '3ei472Ym8vU',
@@ -29,15 +31,13 @@ const AVATAR_VIDEOS = [
       'Avatar creation, conversational presentation, website integration, scripting, branded communication, and interactive customer experience design.',
   },
   {
-    id: '50MgpHl38n8',
-    title: 'Custom Content Creation Demo',
-    iframeTitle: 'Custom Content Creation Demo video',
+    id: 'fy9i82qJ27s',
+    title: 'Portfolio Overview',
+    iframeTitle: 'Portfolio Overview video',
     description:
-      'A real estate example showing how custom AI-assisted content can be created for a specific company, offer, or industry.',
-    supporting:
-      'Real estate is the first industry example, but the same content-production approach can be adapted for professional services, healthcare, legal services, hospitality, retail, education, e-commerce, and other industries.',
+      'An overview of the creative and technical work behind Fifth Ave AI, including custom websites, AI avatars, branded video, generative AI, and digital experience development.',
     demonstrates:
-      'Content strategy, AI avatar production, scripting, branded visuals, editing, promotional storytelling, and industry-specific content creation.',
+      'Creative direction, web design and development, AI production, visual storytelling, prompt engineering, editing, deployment, and complete project execution.',
   },
 ];
 
