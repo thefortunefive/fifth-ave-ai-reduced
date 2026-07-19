@@ -11,9 +11,9 @@ const engine = engineName === 'webkit' ? webkit : chromium;
 const isMobile = Math.min(width, height) <= 600;
 
 const EXPECTED_VIDEOS = [
-  { id: 'RIwE1G70tk0', title: 'AI Avatar Brand Introduction' },
-  { id: '5O9651teeiA', title: 'Avatar Marketing: Real Estate Example' },
-  { id: '_HU8wX9XFJo', title: 'AI Avatar Advertising Demo' },
+  { id: 'fy9i82qJ27s', title: 'Portfolio Overview' },
+  { id: '3ei472Ym8vU', title: 'Avatar Assistant Demo' },
+  { id: '50MgpHl38n8', title: 'Custom Content Creation Demo' },
 ];
 
 const browser = await engine.launch();

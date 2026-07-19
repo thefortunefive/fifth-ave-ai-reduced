@@ -1,8 +1,8 @@
 'use client';
 
 // Portfolio & Demos — LinkedIn-facing portfolio. Route stays /ai-tools.
-// Category 1: real website work (this site). Category 2: AI Avatars &
-// Advertising with three real YouTube demos. No autoplay, no invented stats.
+// Category 1: real website work. Category 2: AI Avatars & Advertising with
+// three stacked editorial rows, portrait-friendly embed sizing.
 
 import { useRef } from 'react';
 import Link from 'next/link';
@@ -11,30 +11,33 @@ import Footer from '@/components/Footer';
 
 const AVATAR_VIDEOS = [
   {
-    id: 'RIwE1G70tk0',
-    title: 'AI Avatar Brand Introduction',
+    id: 'fy9i82qJ27s',
+    title: 'Portfolio Overview',
+    iframeTitle: 'Portfolio Overview video',
     description:
-      'A branded AI presenter example created to introduce a company, service, or professional message through a polished avatar-led video.',
+      'An overview of the creative and technical work behind Fifth Ave AI, including custom websites, AI avatars, branded video, generative AI, and digital experience development.',
     demonstrates:
-      'Custom avatar production, scripting, visual presentation, editing, captions, and branded communication.',
+      'Creative direction, web design and development, AI production, visual storytelling, prompt engineering, editing, deployment, and complete project execution.',
   },
   {
-    id: '5O9651teeiA',
-    title: 'Avatar Marketing: Real Estate Example',
+    id: '3ei472Ym8vU',
+    title: 'Avatar Assistant Demo',
+    iframeTitle: 'Avatar Assistant Demo video',
     description:
-      'A real estate example showing how an AI avatar can present services, explain an offer, promote properties, and create branded marketing content.',
+      'A demonstration of an AI avatar assistant designed to introduce information, guide website visitors, explain services, and support branded customer communication.',
+    demonstrates:
+      'Avatar creation, conversational presentation, website integration, scripting, branded communication, and interactive customer experience design.',
+  },
+  {
+    id: '50MgpHl38n8',
+    title: 'Custom Content Creation Demo',
+    iframeTitle: 'Custom Content Creation Demo video',
+    description:
+      'A real estate example showing how custom AI-assisted content can be created for a specific company, offer, or industry.',
     supporting:
-      'The same approach can be adapted for healthcare, legal services, retail, hospitality, education, professional services, e-commerce, and other industries.',
+      'Real estate is the first industry example, but the same content-production approach can be adapted for professional services, healthcare, legal services, hospitality, retail, education, e-commerce, and other industries.',
     demonstrates:
-      'Industry-specific avatar marketing, promotional storytelling, branded presentation, and adaptable campaign production.',
-  },
-  {
-    id: '_HU8wX9XFJo',
-    title: 'AI Avatar Advertising Demo',
-    description:
-      'An example of using a custom AI avatar to deliver concise branded advertising and promotional content for digital campaigns.',
-    demonstrates:
-      'Advertising concepts, scripting, avatar performance, visual overlays, editing, and short-form campaign production.',
+      'Content strategy, AI avatar production, scripting, branded visuals, editing, promotional storytelling, and industry-specific content creation.',
   },
 ];
 
@@ -130,49 +133,76 @@ export default function PortfolioDemosPage() {
               promotion, education, and company communication.
             </p>
 
-            <div className="mt-12 grid gap-8 lg:grid-cols-3">
-              {AVATAR_VIDEOS.map((v) => (
+            {/* Stacked editorial project rows */}
+            <div className="mt-14 space-y-16 md:space-y-24">
+              {AVATAR_VIDEOS.map((v, i) => (
                 <article
                   key={v.id}
                   data-reveal
-                  data-reveal-group="avatar-videos"
-                  className="glass-card flex flex-col overflow-hidden rounded-xl"
+                  className="glass-card overflow-hidden rounded-xl"
                 >
-                  {/* Responsive 16:9 embed — no autoplay */}
-                  <div className="relative w-full" style={{ aspectRatio: '16 / 9' }}>
-                    <iframe
-                      src={`https://www.youtube-nocookie.com/embed/${v.id}`}
-                      title={v.title}
-                      loading="lazy"
-                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      className="absolute inset-0 h-full w-full border-0"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col p-7">
-                    <h3 className="font-display text-xl text-white">{v.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-white/60">
-                      {v.description}
-                    </p>
-                    {v.supporting && (
-                      <p className="mt-3 text-sm leading-relaxed text-white/45">
-                        {v.supporting}
+                  {/*
+                    Desktop: video + copy side by side, alternating sides.
+                    Mobile: video first, then copy below.
+                  */}
+                  <div
+                    className={`flex flex-col md:flex-row md:items-stretch${
+                      i % 2 === 1 ? ' md:flex-row-reverse' : ''
+                    }`}
+                  >
+                    {/* Portrait-friendly video column — narrower than copy column */}
+                    <div className="w-full md:w-[42%] shrink-0">
+                      {/*
+                        Portrait embed container: 9:16 ratio on mobile,
+                        fill the column height on desktop via a fixed-ratio
+                        box that keeps the player portrait without cropping.
+                      */}
+                      <div
+                        className="relative w-full bg-black"
+                        style={{ aspectRatio: '9 / 16' }}
+                      >
+                        <iframe
+                          src={`https://www.youtube-nocookie.com/embed/${v.id}`}
+                          title={v.iframeTitle}
+                          loading="lazy"
+                          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          className="absolute inset-0 h-full w-full border-0"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Copy column */}
+                    <div className="flex flex-1 flex-col justify-center p-8 md:p-12">
+                      <p className="text-[11px] uppercase tracking-[0.3em] text-gold/60">
+                        {`0${i + 1}`}
                       </p>
-                    )}
-                    <p className="mt-4 border-t border-white/10 pt-4 text-[13px] leading-relaxed text-white/45">
-                      <span className="text-[10px] uppercase tracking-[0.25em] text-gold/60">
-                        Demonstrates
-                      </span>
-                      <br />
-                      {v.demonstrates}
-                    </p>
+                      <h3 className="font-display mt-3 text-2xl text-white md:text-3xl">
+                        {v.title}
+                      </h3>
+                      <p className="mt-4 leading-relaxed text-white/65">
+                        {v.description}
+                      </p>
+                      {v.supporting && (
+                        <p className="mt-3 leading-relaxed text-white/45 text-sm">
+                          {v.supporting}
+                        </p>
+                      )}
+                      <p className="mt-6 border-t border-white/10 pt-5 text-sm leading-relaxed text-white/45">
+                        <span className="text-[10px] uppercase tracking-[0.25em] text-gold/60">
+                          Demonstrates
+                        </span>
+                        <br />
+                        {v.demonstrates}
+                      </p>
+                    </div>
                   </div>
                 </article>
               ))}
             </div>
 
-            <div data-reveal className="mt-16 text-center">
+            <div data-reveal className="mt-20 text-center">
               <p className="text-white/50">
                 Interested in this kind of work for your company?
               </p>
