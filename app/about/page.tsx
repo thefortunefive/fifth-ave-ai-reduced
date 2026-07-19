@@ -26,14 +26,17 @@ export default function AboutPage() {
               About Fifth Ave AI
             </h1>
             <p data-reveal className="mt-6 max-w-2xl text-lg leading-relaxed text-white/60">
-              Fifth Ave AI creates custom websites and AI avatar video
-              experiences for businesses that want to communicate clearly and
-              present themselves professionally.
+              Fifth Ave AI is where I develop and present custom websites, AI
+              avatar advertising, and digital experiences.
             </p>
             <p data-reveal className="mt-4 max-w-2xl leading-relaxed text-white/60">
-              We combine design, storytelling, and current AI technology to
-              build practical digital experiences around a specific business
-              goal.
+              The work combines creative direction, generative AI, visual
+              storytelling, web development, and practical business
+              communication.
+            </p>
+            <p data-reveal className="mt-4 max-w-2xl leading-relaxed text-white/60">
+              The goal is to create work that can be used by real companies,
+              campaigns, products, and teams.
             </p>
           </div>
         </section>

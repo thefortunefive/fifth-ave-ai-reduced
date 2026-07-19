@@ -5,9 +5,10 @@ import { useFadeUp } from '@/lib/animations';
 import Footer from '@/components/Footer';
 
 const PROJECT_TYPES = [
-  'Custom Website',
-  'AI Avatar',
-  'Avatar Video Production',
+  'Hiring or Employment Opportunity',
+  'Custom Website Project',
+  'AI Avatar Advertising Project',
+  'Collaboration',
   'Other / Not Sure',
 ];
 
@@ -45,8 +46,9 @@ export default function ContactPage() {
               Let&apos;s talk.
             </h1>
             <p data-reveal className="mt-6 max-w-xl text-lg text-white/60">
-              Tell us whether you need a custom website, an AI avatar, or
-              branded avatar videos.
+              Contact me about a role, collaboration, or project involving
+              custom websites, AI avatars, branded video, or digital
+              experiences.
             </p>
           </div>
         </section>
@@ -151,7 +153,7 @@ export default function ContactPage() {
                     type="submit"
                     className="w-full rounded-full bg-gold py-4 text-sm font-medium uppercase tracking-[0.2em] text-dark transition-all duration-300 hover:shadow-[0_0_40px_rgba(215,183,90,0.45)]"
                   >
-                    Send Project Details
+                    Send Details
                   </button>
                 </form>
               )}

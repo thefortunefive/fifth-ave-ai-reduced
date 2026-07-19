@@ -1,42 +1,40 @@
 'use client';
 
-// Reduced-launch homepage: the two client services, presented as two large
-// editorial panels (side-by-side on desktop, stacked on mobile). Typography-led
-// by design — no imagery required for launch.
+// LinkedIn-facing positioning: two capabilities presented as portfolio proof,
+// with CTAs routing to Portfolio & Demos. Typography-led — no imagery required.
 
 import { useRef } from 'react';
 import Link from 'next/link';
 import { useFadeUp } from '@/lib/animations';
 
-const SERVICES = [
+const CAPABILITIES = [
   {
-    kicker: 'Service 01',
-    title: 'Custom AI Websites',
-    core: 'Custom websites designed around your business, your offer, and the action you want visitors to take.',
+    kicker: 'Capability 01',
+    title: 'Custom Websites and Digital Experiences',
+    core: 'Distinctive websites built around a company, product, campaign, or business goal. Projects can include business websites, landing pages, interactive presentations, responsive experiences, and AI-enhanced web design.',
     items: [
       'Business and brand websites',
       'Landing pages',
-      'Product and service presentations',
-      'Interactive web experiences',
-      'Responsive desktop and mobile builds',
-      'Deployment-ready websites',
+      'Interactive presentations',
+      'Responsive experiences',
+      'AI-enhanced web design',
+      'Deployment-ready builds',
     ],
-    cta: { label: 'Discuss Your Website', href: '/contact' },
+    cta: { label: 'View Website Work', href: '/ai-tools' },
   },
   {
-    kicker: 'Service 02',
-    title: 'AI Avatars and Video',
-    core: 'Custom AI presenters and branded video content for marketing, education, sales, and customer communication.',
+    kicker: 'Capability 02',
+    title: 'AI Avatars and Advertising',
+    core: 'Custom AI presenters and branded avatar videos created for advertising, product promotion, customer education, social media, internal communications, and company campaigns.',
     items: [
       'Custom AI avatars',
       'Branded avatar presenters',
-      'Website welcome videos',
-      'Product and service explainers',
-      'Educational videos',
+      'Advertising and promotional videos',
+      'Customer education content',
       'Social media video content',
-      'Scripted avatar video production',
+      'Internal communications',
     ],
-    cta: { label: 'Discuss Your Avatar Project', href: '/contact' },
+    cta: { label: 'View Avatar Work', href: '/ai-tools#avatar-work' },
   },
 ];
 
@@ -48,15 +46,34 @@ export default function TwoServices() {
     <section ref={ref} id="services-home" className="relative bg-dark px-6 py-28 md:py-40">
       <div className="mx-auto max-w-6xl">
         <p data-reveal className="text-xs uppercase tracking-[0.35em] text-gold">
-          What we build
+          What I do
         </p>
         <h2 data-reveal className="font-display mt-4 max-w-3xl text-4xl text-white md:text-5xl">
-          Two things, done properly.
+          I build custom websites and AI avatar advertising for companies.
         </h2>
-        <div className="gold-rule mt-10" data-reveal />
+        <p data-reveal className="mt-6 max-w-2xl text-lg leading-relaxed text-white/60">
+          I combine design, AI technology, visual storytelling, and practical
+          implementation to create distinctive digital experiences and branded
+          video content.
+        </p>
+        <div data-reveal className="mt-9 flex flex-wrap gap-4">
+          <Link
+            href="/ai-tools"
+            className="inline-block rounded-full bg-gold px-9 py-3.5 text-sm font-medium uppercase tracking-[0.2em] text-dark transition-all duration-300 hover:shadow-[0_0_40px_rgba(215,183,90,0.45)]"
+          >
+            View My Work
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-block rounded-full border border-gold/40 px-9 py-3.5 text-sm font-medium uppercase tracking-[0.2em] text-gold transition-all duration-300 hover:bg-gold hover:text-dark"
+          >
+            Discuss a Role or Project
+          </Link>
+        </div>
+        <div className="gold-rule mt-12" data-reveal />
 
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
-          {SERVICES.map((s) => (
+          {CAPABILITIES.map((s) => (
             <article
               key={s.title}
               data-reveal
