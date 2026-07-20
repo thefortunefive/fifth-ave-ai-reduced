@@ -26,11 +26,11 @@ export default function ContactPage() {
     const email = data.get('email');
     const projectType = data.get('projectType');
     const message = data.get('message');
-    const subject = encodeURIComponent(`New project inquiry — ${projectType} — ${name}`);
+    const subject = encodeURIComponent(`New inquiry — ${projectType} — ${name}`);
     const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nProject type: ${projectType}\n\n${message}`
+      `Name: ${name}\nEmail: ${email}\nInquiry type: ${projectType}\n\n${message}`
     );
-    window.location.href = `mailto:hello@fifthaveai.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:shane@fifthaveai.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -40,7 +40,7 @@ export default function ContactPage() {
         <section ref={heroRef} className="bg-dark px-6 py-20 md:py-32">
           <div className="mx-auto max-w-6xl">
             <p data-reveal className="text-xs uppercase tracking-[0.35em] text-gold">
-              Start a Project
+              Get in Touch
             </p>
             <h1 data-reveal className="font-display mt-4 text-4xl text-white md:text-6xl">
               Let&apos;s talk.
@@ -57,18 +57,18 @@ export default function ContactPage() {
           <div className="mx-auto grid max-w-6xl gap-14 md:grid-cols-[1fr_1fr]">
             {/* Form */}
             <div>
-              <h2 className="font-display text-2xl text-white">Project Details</h2>
+              <h2 className="font-display text-2xl text-white">Let&apos;s Connect</h2>
               {submitted ? (
                 <div className="mt-8 glass-card rounded-xl p-8 text-center">
                   <p className="font-display text-2xl text-gold">Thank you!</p>
                   <p className="mt-4 text-white/60">
-                    Your email client should have opened with your message. If it
-                    didn&apos;t, please email us directly at{' '}
+                    Your email client should have opened with your message. If
+                    it didn&apos;t, email me directly at{' '}
                     <a
-                      href="mailto:hello@fifthaveai.com"
+                      href="mailto:shane@fifthaveai.com"
                       className="text-gold hover:underline"
                     >
-                      hello@fifthaveai.com
+                      shane@fifthaveai.com
                     </a>
                   </p>
                   <button
@@ -117,7 +117,7 @@ export default function ContactPage() {
                       htmlFor="projectType"
                       className="block text-xs uppercase tracking-[0.2em] text-white/50"
                     >
-                      Project Type
+                      Inquiry Type
                     </label>
                     <select
                       id="projectType"
@@ -146,7 +146,7 @@ export default function ContactPage() {
                       required
                       rows={5}
                       className="mt-2 w-full resize-none rounded-lg border border-white/10 bg-dark px-4 py-3 text-white placeholder:text-white/25 focus:border-gold/50 focus:outline-none focus:ring-1 focus:ring-gold/30"
-                      placeholder="Tell us about your project..."
+                      placeholder="Tell me about the role, project, or collaboration."
                     />
                   </div>
                   <button
@@ -160,34 +160,32 @@ export default function ContactPage() {
             </div>
 
             {/* Contact info */}
-            <div className="space-y-10">
+            <div className="space-y-6">
               <div className="glass-card rounded-xl p-8">
-                <h3 className="font-display text-xl text-white">Call Us</h3>
+                <h3 className="font-display text-xl text-white">Email</h3>
+                <a
+                  href="mailto:shane@fifthaveai.com"
+                  className="mt-3 block text-gold transition-colors hover:text-[#f0dcae]"
+                >
+                  shane@fifthaveai.com
+                </a>
+              </div>
+
+              <div className="glass-card rounded-xl p-8">
+                <h3 className="font-display text-xl text-white">Phone</h3>
                 <a
                   href="tel:+14253167268"
                   className="mt-3 block font-display text-2xl text-gold transition-colors hover:text-[#f0dcae]"
                 >
                   (425) 316-7268
                 </a>
-                <p className="mt-2 text-sm text-white/40">Mon-Fri, 9am-6pm PST</p>
               </div>
 
               <div className="glass-card rounded-xl p-8">
-                <h3 className="font-display text-xl text-white">Email</h3>
-                <a
-                  href="mailto:hello@fifthaveai.com"
-                  className="mt-3 block text-gold transition-colors hover:text-[#f0dcae]"
-                >
-                  hello@fifthaveai.com
-                </a>
-              </div>
-
-              <div className="glass-card rounded-xl p-8">
-                <h3 className="font-display text-xl text-white">Office</h3>
-                <p className="mt-3 leading-relaxed text-white/60">
-                  11335 NE 122nd Way, Suite 105
-                  <br />
-                  Kirkland, Washington 98034
+                <h3 className="font-display text-xl text-white">Location</h3>
+                <p className="mt-3 text-white/60">Kirkland, Washington</p>
+                <p className="mt-2 text-sm text-white/40">
+                  Open to remote, hybrid, and selected on-site opportunities.
                 </p>
               </div>
             </div>
