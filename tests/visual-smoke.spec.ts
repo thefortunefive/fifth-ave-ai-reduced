@@ -141,7 +141,7 @@ test.describe('Brand elements present', () => {
 // ─── Oversized element guards ───────────────────────────────────
 
 test.describe('No oversized elements', () => {
-  const ALL_ROUTES = ['/', '/services', '/ai-tools', '/work', '/ai-career-defense', '/about', '/contact'];
+  const ALL_ROUTES = ['/', '/services', '/ai-tools', '/work', '/about', '/contact'];
 
   for (const route of ALL_ROUTES) {
     test(`${route} — no SVG exceeds 40% of viewport`, async ({ page }) => {

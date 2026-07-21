@@ -5,7 +5,6 @@ const ROUTES = [
   { path: '/services', slug: 'services' },
   { path: '/ai-tools', slug: 'ai-tools' },
   { path: '/work', slug: 'work' },
-  { path: '/ai-career-defense', slug: 'ai-career-defense' },
   { path: '/about', slug: 'about' },
   { path: '/contact', slug: 'contact' },
 ];

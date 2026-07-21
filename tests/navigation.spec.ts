@@ -4,7 +4,6 @@ const TOP_NAV = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
   { label: 'AI Tools & Demos', href: '/ai-tools' },
-  { label: 'AI Career Defense', href: '/ai-career-defense' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -12,7 +11,6 @@ const TOP_NAV = [
 const FLOOR_MENU_PAGES = [
   { label: 'Services', href: '/services' },
   { label: 'AI Tools & Demos', href: '/ai-tools' },
-  { label: 'AI Career Defense', href: '/ai-career-defense' },
   { label: 'About Fifth Ave AI', href: '/about' },
   { label: 'Contact / Book a Consultation', href: '/contact' },
 ];
@@ -225,7 +223,7 @@ test.describe('/work redirect', () => {
 // ─── All pages return 200 ────────────────────────────────────────
 
 test.describe('All pages return 200', () => {
-  const routes = ['/', '/services', '/ai-tools', '/work', '/ai-career-defense', '/about', '/contact'];
+  const routes = ['/', '/services', '/ai-tools', '/work', '/about', '/contact'];
 
   for (const route of routes) {
     test(`${route} returns 200`, async ({ page }) => {

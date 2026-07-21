@@ -23,11 +23,6 @@ const icons: Record<string, JSX.Element> = {
       <circle cx="15" cy="15" r="1" fill="currentColor" />
     </svg>
   ),
-  '/ai-career-defense': (
-    <svg className={IC} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
-      <path d="M12 3l7.5 4.3v5.4c0 4.7-3.2 9-7.5 10.3-4.3-1.3-7.5-5.6-7.5-10.3V7.3L12 3z" />
-    </svg>
-  ),
   '/about': (
     <svg className={IC} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
       <rect x="4" y="3" width="16" height="18" rx="2" />
@@ -130,7 +125,7 @@ export default function WebDesignMenu() {
             </div>
 
             {/* ===== Directory rows ===== */}
-            {/* Five rows (was seven) — slightly larger row height + gap keeps
+            {/* Four rows (was five) — slightly larger row height + gap keeps
                 the card's vertical presence balanced under the crest. */}
             <ul className="mt-7 space-y-[9px]">
               {DIRECTORY_MENU.map((item) => {

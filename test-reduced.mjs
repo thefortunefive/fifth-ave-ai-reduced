@@ -9,7 +9,7 @@ const height = parseInt(heightS, 10);
 const engine = engineName === 'webkit' ? webkit : chromium;
 const isMobile = Math.min(width, height) <= 600;
 
-const ROUTES = ['/', '/services', '/ai-tools', '/ai-career-defense', '/about', '/contact'];
+const ROUTES = ['/', '/services', '/ai-tools', '/about', '/contact'];
 const BANNED = /FLOOR\s*0?2|Second Floor|2nd Floor|filmmaker|Run like a studio|premium brand|\$25,000|3 clients per quarter|three clients|Listing Intelligence|Content Systems|Email Assistant|Coming Soon|IMAGE PLACEHOLDER|Portrait 400|Seattle, WA|Atlanta|Philadelphia|Executive Program|Premium Consulting|enterprise transformation/i;
 
 const browser = await engine.launch();
