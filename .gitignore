@@ -14,6 +14,16 @@ npm-debug.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Cloudflare Pages Functions local secrets and state — never commit
+.dev.vars
+.dev.vars.*
+.wrangler/
+
+# Next.js environment files — never commit (use .env.example for docs)
+.env
+.env.*
+!.env.example
+
 # Encoding sources — only used by scripts/encode-hero.mjs to produce
 # hero-web.mp4/hero-idle.mp4. Too large for git (the elevator source is 79MB)
 # and for Cloudflare Pages' 25MiB limit.
