@@ -8,6 +8,6 @@ compatibility_date = "2026-01-27"
 compatibility_flags = [ "nodejs_compat" ]
 
 [env.production.vars]
-CONTACT_TO_EMAIL = "shane@fifthaveai.com"
+CONTACT_TO_EMAIL = "sha@fifthaveai.com"
 CONTACT_FROM_EMAIL = "Fifth Ave AI Website <website@send.fifthaveai.com>"
 ALLOWED_HOSTNAMES = "fifthaveai.com,www.fifthaveai.com,fifthaveai.pages.dev"

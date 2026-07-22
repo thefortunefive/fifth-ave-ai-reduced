@@ -284,10 +284,10 @@ export default function ContactPage() {
               <div className="glass-card rounded-xl p-8">
                 <h3 className="font-display text-xl text-white">Email</h3>
                 <a
-                  href="mailto:shane@fifthaveai.com"
+                  href="mailto:sha@fifthaveai.com"
                   className="mt-3 block text-gold transition-colors hover:text-[#f0dcae]"
                 >
-                  shane@fifthaveai.com
+                  sha@fifthaveai.com
                 </a>
               </div>
 

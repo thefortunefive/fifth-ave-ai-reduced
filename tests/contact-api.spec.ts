@@ -8,7 +8,7 @@
  *   2. Create .dev.vars with:
  *        TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA   ← Cloudflare test secret
  *        RESEND_API_KEY=re_placeholder_replace_before_deploying
- *        CONTACT_TO_EMAIL=shane@fifthaveai.com
+ *        CONTACT_TO_EMAIL=sha@fifthaveai.com
  *        CONTACT_FROM_EMAIL=Fifth Ave AI Website <website@send.fifthaveai.com>
  *        ALLOWED_HOSTNAMES=fifthaveai.com,www.fifthaveai.com,fifthaveai.pages.dev
  *   3. In a separate terminal: npx wrangler pages dev out --port=8788
