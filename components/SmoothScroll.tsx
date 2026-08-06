@@ -30,7 +30,12 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       // Native scroll: ScrollTrigger listens to window scroll events directly.
       // setLenis(null) so scrollToId falls back to native smooth-scroll.
       setLenis(null);
-      return;
+      // Refresh after all page components have mounted so GSAP trigger positions
+      // are calculated with the correct mobile layout (fonts, images, stacking).
+      // Without this, deep-page elements like a second portfolio card can have
+      // stale trigger offsets and never animate in.
+      const id = setTimeout(() => ScrollTrigger.refresh(), 200);
+      return () => clearTimeout(id);
     }
 
     const lenis = new Lenis({
