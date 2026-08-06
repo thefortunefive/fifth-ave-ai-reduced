@@ -116,6 +116,46 @@ export default function PortfolioDemosPage() {
                 Revisit the Experience
               </Link>
             </article>
+
+            <article data-reveal className="glass-card mt-8 rounded-xl p-10 md:p-12">
+              <p className="text-[11px] uppercase tracking-[0.35em] text-gold/60">
+                Live demo
+              </p>
+              <h3 className="font-display mt-3 text-2xl text-white md:text-3xl">
+                Summit Air — HVAC Marketing Site
+              </h3>
+              <p className="mt-4 max-w-3xl leading-relaxed text-white/65">
+                A complete, conversion-focused website built for a home-services
+                brand, featuring a cinematic looping video hero, mobile-first
+                layout, and click-to-call throughout. Summit Air is a
+                demonstration build showing how any HVAC, plumbing, or
+                electrical company&apos;s brand can be turned into a modern site
+                designed to turn visitors into booked jobs.
+              </p>
+              <ul className="mt-6 grid max-w-3xl gap-x-8 gap-y-3 sm:grid-cols-2">
+                {[
+                  'Web design and development',
+                  'Cinematic video hero production',
+                  'Conversion-focused layout',
+                  'Brand system design',
+                  'Responsive mobile build',
+                  'Static deployment',
+                ].map((f) => (
+                  <li key={f} className="flex items-start gap-2.5 text-sm text-white/55">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold/70" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://summit-air-hvac-1tv.pages.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-block rounded-full border border-gold/40 px-7 py-2.5 text-[12px] uppercase tracking-[0.2em] text-gold transition-all duration-300 hover:bg-gold hover:text-dark"
+              >
+                View the Live Demo
+              </a>
+            </article>
           </div>
         </section>
 
